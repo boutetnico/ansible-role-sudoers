@@ -1,0 +1,8 @@
+---
+- name: Converge
+  hosts: all
+  roles:
+    - role: boutetnico.sudoers
+      sudoers_d_conf:
+        php-fpm:
+          - "envoyer ALL=(ALL) NOPASSWD: /usr/sbin/service php*-fpm reload"

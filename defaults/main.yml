@@ -1,0 +1,5 @@
+---
+sudoers_dependencies:
+  - sudo
+
+sudoers_d_conf: {}

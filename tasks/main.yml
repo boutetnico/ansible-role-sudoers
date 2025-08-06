@@ -1,0 +1,16 @@
+---
+- name: Install dependencies
+  ansible.builtin.apt:
+    name: "{{ sudoers_dependencies }}"
+    state: present
+    update_cache: true
+
+- name: Install sudoers.d configuration files
+  ansible.builtin.template:
+    dest: "/etc/sudoers.d/{{ item.key }}"
+    group: root
+    mode: "0440"
+    owner: root
+    src: etc/sudoers.d/conf.j2
+    validate: "visudo -cf %s"
+  loop: "{{ sudoers_d_conf | dict2items }}"
