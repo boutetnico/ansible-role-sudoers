@@ -6,3 +6,6 @@
       sudoers_d_conf:
         php-fpm:
           - "envoyer ALL=(ALL) NOPASSWD: /usr/sbin/service php*-fpm reload"
+        nginx:
+          - "deploy ALL=(ALL) NOPASSWD: /usr/sbin/service nginx reload"
+          - "deploy ALL=(ALL) NOPASSWD: /usr/sbin/service nginx restart"
